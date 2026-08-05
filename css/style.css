@@ -2,8 +2,8 @@
 
 :root {
   --bg:              #f5f6fa;
-  --surface-0:       #ffffff; 
-  --surface-1:       #ffffff; 
+  --surface-0:       #ffffff;
+  --surface-1:       #ffffff;
   --surface-2:       #f0f1f7;
   --surface-3:       #e8eaf2;
 
@@ -1511,7 +1511,7 @@ textarea.form-control {
     display: flex;
   }
 
-  .nav-actions > .btn{
+  .nav-actions {
     display: none;
   }
 
