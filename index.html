@@ -1,230 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus traker</title>
-    <meta name="descriptation" content="Track your bus real time. Check bus routes, estimated arrival times, live bus status, and schedules easily.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tracker - Real-Time Public Transport Tracking</title>
+  <meta name="description" content="Track your bus in real time. Check bus routes, estimated arrival times, live bus status, and schedules easily.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    
-    
-    <header class="navber">
-        <div class="container navbar-container">
-            <a href="index.html" class="logo">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M192 64C139 64 96 107 96 160L96 448C96 477.8 116.4 502.9 144 510L144 544C144 561.7 158.3 576 176 576L192 576C209.7 576 224 561.7 224 544L224 512L416 512L416 544C416 561.7 430.3 576 448 576L464 576C481.7 576 496 561.7 496 544L496 510C523.6 502.9 544 477.8 544 448L544 160C544 107 501 64 448 64L192 64zM160 192C160 174.3 174.3 160 192 160L448 160C465.7 160 480 174.3 480 192L480 288C480 305.7 465.7 320 448 320L192 320C174.3 320 160 305.7 160 288L160 192zM192 384C209.7 384 224 398.3 224 416C224 433.7 209.7 448 192 448C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384zM448 384C465.7 384 480 398.3 480 416C480 433.7 465.7 448 448 448C430.3 448 416 433.7 416 416C416 398.3 430.3 384 448 384z"/></svg>
-                <span>Bus Traker</span>
-            </a>
 
+  
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>
+        </svg>
+        <span>Bus Tracker</span>
+      </a>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="search.html" class="nav-link ">Search</a>
-                <a href="#routes" class="nav-link ">Routes</a>
-                <a href="about.html" class="nav-link ">About</a>
-                <a href="contact.html" class="nav-link ">Contract</a>
-                <a href="search.html" class="btn btn-primary btn-sm mobile-track-btn " style="display: none;">Track Bus</a>
-            
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="search.html" class="nav-link">Search</a>
+        <a href="#routes" class="nav-link">Routes</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="search.html" class="btn btn-primary btn-sm mobile-track-btn" style="display: none;">Track Bus</a>
+      </nav>
 
-                <div class="nav-actions">
-                    <a href="search.html" class="btn btn-primary btn-sm">Track Bus</a>
-                    <button class="mobile-menu-btn" id="mobileMeanBtn" aria-label="Toggel navigation">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M192 64C139 64 96 107 96 160L96 448C96 477.8 116.4 502.9 144 510L144 544C144 561.7 158.3 576 176 576L192 576C209.7 576 224 561.7 224 544L224 512L416 512L416 544C416 561.7 430.3 576 448 576L464 576C481.7 576 496 561.7 496 544L496 510C523.6 502.9 544 477.8 544 448L544 160C544 107 501 64 448 64L192 64zM160 192C160 174.3 174.3 160 192 160L448 160C465.7 160 480 174.3 480 192L480 288C480 305.7 465.7 320 448 320L192 320C174.3 320 160 305.7 160 288L160 192zM192 384C209.7 384 224 398.3 224 416C224 433.7 209.7 448 192 448C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384zM448 384C465.7 384 480 398.3 480 416C480 433.7 465.7 448 448 448C430.3 448 416 433.7 416 416C416 398.3 430.3 384 448 384z"/></svg>
-                    </button>
-                </div>
-            </nav>
-
-
-
-         </div>
-    </header>
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Track your Bus in Real time</h1>
-                <p>Find Bus routes , live bus location easily and fast</p>
-                <div class="hero-buttons">
-                    <a href="#search" class="btn btn-primary">Track Now</a>
-                    <a href="#routes" class="btn btn-secondary">Show Routes</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="img/buspic.jpeg" alt="Bus Tracker Real Time Vactor illlustration"
-                 width="800" 
-                 height="500">
-            </div>
-        </div>
-    </section> 
-    <section class="section search-section" id="search">
-        <div class="container">
-            <div class="search-Box">
-                <div class="section-header" style ="margin-bottom: 24px; text-align: left;">
-                    <h2 style="font-size: 22px;">Search Bus & Check Status </h2>
-                    <p  style= "font-size: 14px; margin: 0;">Search Live Busses by route number </p>
-                </div>
-                <form class="search-form" id="homeSearchfrom" onsubmit="event.preventDefault(); filterBuses();">
-                    <div class="form-group">
-                        <label for="searchBusNumber">Bus Number</label>
-                        <input type="text" id="searchBusNumber" class="form-group-control" placeholder="Enter Bus Number (e.g. 40A/A3)" autocomplete="off">
-                        <div class="from-group">
-                        <label for ="searchSource">source</label>
-                        <select id="searchSource" class="from-control">
-                            <option value="">All Source</option>
-
-                        </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="searchDestination">Destination</label>
-                            <select id="searchDestination" class="form-control">
-                                <option value="">All Destination</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" id="searchbtn" class="btn btn-primary btn-block">Search</button>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </section>
-
-<section class="section section-alt" id="routes">
-    <div class="container">
-      <div class="section-header">
-        <h2>Popular Bus Routes</h2>
-        <p>Explore high-frequency city routes connecting major hubs and transit centers.</p>
+      <div class="nav-actions">
+        <a href="search.html" class="btn btn-primary btn-sm">Track Bus</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </button>
       </div>
-      <div class="routes-grid">
-        
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 201</span>
-            <span class="route-freq">Every 15 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">City Center</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">Airport</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">12 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('201')">View Details</button>
-          </div>
-        </div>
+    </div>
+  </header>
 
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 115</span>
-            <span class="route-freq">Every 20 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">Railway</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">Mall</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">10 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('115')">View Details</button>
-          </div>
+  
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Track Your Bus in Real Time</h1>
+        <p>Find bus routes, estimated arrival times, and live bus locations quickly and easily.</p>
+        <div class="hero-buttons">
+          <a href="#search" class="btn btn-primary">Track Now</a>
+          <a href="#routes" class="btn btn-secondary">View Routes</a>
         </div>
-
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 78</span>
-            <span class="route-freq">Every 10 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">University</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">Station</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">8 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('78')">View Details</button>
-          </div>
-        </div>
-
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 42</span>
-            <span class="route-freq">Every 30 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">Airport</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">Hospital</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">14 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('42')">View Details</button>
-          </div>
-        </div>
-
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 305</span>
-            <span class="route-freq">Every 15 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">Downtown</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">West End</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">11 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('305')">View Details</button>
-          </div>
-        </div>
-
-        <div class="route-card">
-          <div class="route-header">
-            <span class="route-number">Route 88</span>
-            <span class="route-freq">Every 25 Minutes</span>
-          </div>
-          <div class="route-path">
-            <div class="route-point">
-              <div class="city">North Gate</div>
-            </div>
-            <div class="route-arrow">↓</div>
-            <div class="route-point">
-              <div class="city">South Hub</div>
-            </div>
-          </div>
-          <div class="route-footer">
-            <span class="route-info">15 Intermediate Stops</span>
-            <button class="btn btn-secondary btn-sm" onclick="openBusModal('88')">View Details</button>
-          </div>
-        </div>
-
+      </div>
+      <div class="hero-image">
+        <img src="img/buspic.jpeg" alt="Bus Tracker Real-time Vector Illustration" width="800" height="500">
       </div>
     </div>
   </section>
 
-  <section class="section" id="status">
+  
+  <section class="section search-section" id="search">
+    <div class="container">
+      <div class="search-box">
+        <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+          <h2 style="font-size: 22px;">Search Bus & Check Status</h2>
+          <p style="font-size: 14px; margin: 0;">Filter live buses by route number, origin, or destination.</p>
+        </div>
+        <form class="search-form" id="homeSearchForm" onsubmit="event.preventDefault(); filterBuses();">
+          <div class="form-group">
+            <label for="searchBusNumber">Bus Number / Keyword</label>
+            <input type="text" id="searchBusNumber" class="form-control" placeholder="Enter Bus Number (e.g. 201)" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="searchSource">Source</label>
+            <select id="searchSource" class="form-control">
+              <option value="">All Sources</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="searchDestination">Destination</label>
+            <select id="searchDestination" class="form-control">
+              <option value="">All Destinations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="button" id="searchBtn" class="btn btn-primary btn-block">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section section-alt" id="status">
     <div class="container">
       <div class="section-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; text-align: left;">
         <div>
@@ -249,14 +115,153 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody id="liveBusStatusBody" id="searchResultsContainer">
-            <!-- Populated dynamically via script.js -->
+          <tbody id="liveBusStatusBody">
+            
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
+  <section class="section" id="routes">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Bus Routes</h2>
+        <p>Explore high-frequency city routes connecting major hubs and transit centers.</p>
+      </div>
+      <div class="routes-grid">
+        
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 201</span>
+            <span class="route-freq">Every 15 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">City Center</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">Airport</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">12 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('201')">View Details</button>
+          </div>
+        </div>
+
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 115</span>
+            <span class="route-freq">Every 20 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">Railway</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">Mall</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">10 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('115')">View Details</button>
+          </div>
+        </div>
+
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 78</span>
+            <span class="route-freq">Every 10 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">University</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">Station</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">8 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('78')">View Details</button>
+          </div>
+        </div>
+
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 42</span>
+            <span class="route-freq">Every 30 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">Airport</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">Hospital</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">14 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('42')">View Details</button>
+          </div>
+        </div>
+
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 305</span>
+            <span class="route-freq">Every 15 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">Downtown</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">West End</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">11 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('305')">View Details</button>
+          </div>
+        </div>
+
+        
+        <div class="route-card">
+          <div class="route-header">
+            <span class="route-number">Route 88</span>
+            <span class="route-freq">Every 25 Minutes</span>
+          </div>
+          <div class="route-path">
+            <div class="route-point">
+              <div class="city">North Gate</div>
+            </div>
+            <div class="route-arrow">↓</div>
+            <div class="route-point">
+              <div class="city">South Hub</div>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-info">15 Intermediate Stops</span>
+            <button class="btn btn-secondary btn-sm" onclick="openBusModal('88')">View Details</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
   <section class="section section-alt" id="schedule">
     <div class="container">
       <div class="section-header">
@@ -268,22 +273,22 @@
         <table class="custom-table">
           <thead>
             <tr>
-              <th>Bus Number</th>
-              <th>Route</th>
-              <th>Current Stop</th>
-              <th>Arrival Time</th>
+              <th>Bus</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+              <th>Platform</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
-          <tbody id="liveBusStatusBody">
-            <!-- Populated dynamically via script.js -->
+          <tbody id="busScheduleBody">
+            
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
+  
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
@@ -335,6 +340,7 @@
     </div>
   </section>
 
+  
   <section class="section section-alt" id="faq">
     <div class="container">
       <div class="section-header">
@@ -343,7 +349,7 @@
       </div>
 
       <div class="faq-container">
-        <divvvvvvvvvvvv class="faq-item">
+        <div class="faq-item">
           <button class="faq-question">
             <span>How do I search a bus?</span>
             <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
@@ -386,6 +392,7 @@
     </div>
   </section>
 
+  
   <div class="modal-overlay" id="busModalOverlay">
     <div class="modal-content">
       <div class="modal-header">
@@ -393,7 +400,7 @@
         <button class="modal-close" id="busModalClose">&times;</button>
       </div>
       <div class="modal-body" id="modalBusBody">
-        <!-- Content inserted dynamically via modal.js -->
+        
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" id="busModalFooterClose">Close</button>
@@ -401,6 +408,7 @@
     </div>
   </div>
 
+  
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -437,8 +445,8 @@
 
         <div class="footer-col">
           <h4>Contact & Support</h4>
-          <p><strong>Email:</strong> support@bustracker.local</p>
-          <p><strong>Phone:</strong> +1 (800) 555-BUS1</p>
+          <p><strong>Email:</strong> sanpuinilambar@gmail.com</p>
+          <p><strong>Phone:</strong> +918420892876</p>
           <p><strong>Hours:</strong> Mon - Sun: 6:00 AM - 11:00 PM</p>
         </div>
       </div>
@@ -450,6 +458,7 @@
     </div>
   </footer>
 
+  
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script src="js/modal.js"></script>
