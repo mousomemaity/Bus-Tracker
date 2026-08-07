@@ -1,238 +1,291 @@
 const busData = [
-{
-    id: "201",
-    busNumber: "201",
-    route: "City Center to Airport",
-    source: "City Center",
-    destination: "Airport",
-    currentStop: "Main Street",
-    nextStop: "VIP Road",
-    departureTime: "10:30 AM",
-    arrival: "11:15 AM",
-    platform: "Platform A",
-    etaMinutes: 5,
-    status: "On Time",
-    driverName: "Niladri Mahata",
-    availableSeats: 14,
-    totalSeats: 40,
-    frequency: "Every 10 minutes"
-},
-{
+  {
+    id: "201", 
+    busNumber: "201", 
+    routeName: "City Center → Airport", 
+    source: "City Center", 
+    destination: "Airport", 
+    currentStop: "Park Street", 
+    nextStop: "VIP Road", 
+    departure: "08:00 AM", 
+    arrival: "08:45 AM", 
+    platform: "Platform A", 
+    etaMinutes: 5, 
+    status: "On Time", 
+    driverName: "Robert Miller", 
+    availableSeats: 14, 
+    totalSeats: 40, 
+    frequency: "Every 15 Minutes" 
+  },
+  {
     id: "115",
     busNumber: "115",
-    route: "Railway Station to Shopping Mall",
+    routeName: "Railway Station → Mall",
     source: "Railway Station",
-    destination: "Shopping Mall",
-    currentStop: "College More",
-    nextStop: "Bus Stand",
-    departureTime: "09:45 AM",
-    arrival: "10:30 AM",
-    platform: "Platform B",
+    destination: "Mall",
+    currentStop: "Esplanade",
+    nextStop: "Central Plaza",
+    departure: "08:15 AM",
+    arrival: "09:05 AM",
+    platform: "Platform C",
     etaMinutes: 8,
-    status: "Running",
-    driverName: "Rahul Das",
-    availableSeats: 20,
-    totalSeats: 40,
-    frequency: "Every 15 minutes"
-},
-{
+    status: "Delayed",
+    driverName: "David Vance",
+    availableSeats: 6,
+    totalSeats: 45,
+    frequency: "Every 20 Minutes"
+  },
+  {
     id: "78",
     busNumber: "78",
-    route: "University to Central Station",
+    routeName: "University → Station",
     source: "University",
-    destination: "Central Station",
-    currentStop: "Science Park",
-    nextStop: "Library",
-    departureTime: "11:00 AM",
-    arrival: "11:40 AM",
-    platform: "Platform C",
+    destination: "Station",
+    currentStop: "College Street",
+    nextStop: "Tech Hub",
+    departure: "08:30 AM",
+    arrival: "09:10 AM",
+    platform: "Platform B",
     etaMinutes: 3,
     status: "On Time",
-    driverName: "Amit Roy",
-    availableSeats: 12,
-    totalSeats: 40,
-    frequency: "Every 20 minutes"
-},
-{
+    driverName: "Sarah Jenkins",
+    availableSeats: 22,
+    totalSeats: 50,
+    frequency: "Every 10 Minutes"
+  },
+  {
     id: "42",
     busNumber: "42",
-    route: "Airport to City Hospital",
+    routeName: "Airport → Hospital",
     source: "Airport",
-    destination: "City Hospital",
-    currentStop: "VIP Road",
-    nextStop: "Medical College",
-    departureTime: "12:15 PM",
-    arrival: "01:00 PM",
+    destination: "Hospital",
+    currentStop: "Salt Lake",
+    nextStop: "Green Avenue",
+    departure: "08:45 AM",
+    arrival: "09:30 AM",
     platform: "Platform D",
-    etaMinutes: 2,
-    status: "Arriving",
-    driverName: "Sourav Sen",
-    availableSeats: 9,
+    etaMinutes: 12,
+    status: "Cancelled",
+    driverName: "Michael Chang",
+    availableSeats: 0,
     totalSeats: 40,
-    frequency: "Every 30 minutes"
-},
-{
+    frequency: "Every 30 Minutes"
+  },
+  {
     id: "305",
     busNumber: "305",
-    route: "Downtown to West End",
+    routeName: "Downtown → West End",
     source: "Downtown",
     destination: "West End",
-    currentStop: "City Hall",
-    nextStop: "West Market",
-    departureTime: "01:30 PM",
-    arrival: "02:20 PM",
-    platform: "Platform E",
-    etaMinutes: 7,
-    status: "Running",
-    driverName: "Rakesh Kumar",
+    currentStop: "Broadway Street",
+    nextStop: "Riverfront",
+    departure: "09:00 AM",
+    arrival: "09:40 AM",
+    platform: "Platform A",
+    etaMinutes: 6,
+    status: "On Time",
+    driverName: "Alex Rivera",
     availableSeats: 18,
-    totalSeats: 40,
-    frequency: "Every 25 minutes"
-},
-{
+    totalSeats: 42,
+    frequency: "Every 15 Minutes"
+  },
+  {
     id: "88",
     busNumber: "88",
-    route: "North Gate to South Hub",
+    routeName: "North Gate → South Hub",
     source: "North Gate",
     destination: "South Hub",
-    currentStop: "Green Park",
-    nextStop: "City Square",
-    departureTime: "02:00 PM",
-    arrival: "02:55 PM",
-    platform: "Platform F",
-    etaMinutes: 10,
+    currentStop: "Market Square",
+    nextStop: "Industrial Park",
+    departure: "09:15 AM",
+    arrival: "10:00 AM",
+    platform: "Platform E",
+    etaMinutes: 15,
     status: "Delayed",
-    driverName: "Ankit Sharma",
-    availableSeats: 24,
-    totalSeats: 40,
-    frequency: "Every 20 minutes"
-},
-
+    driverName: "James Watson",
+    availableSeats: 9,
+    totalSeats: 48,
+    frequency: "Every 25 Minutes"
+  }
 ];
 
+
 function getStatusBadge(status) {
-    let badgeClass = "badge-success";
-    if (status === "Delayed") badgeClass = "badge-warning";
-    if (status === "Cancelled") badgeClass = "badge-danger";
-    return `<span class="badge ${badgeClass}">${status}</span>` ;
+  
+  let badgeClass = "badge-success";
+  
+  if (status === "Delayed") badgeClass = "badge-warning";
+  
+  if (status === "Cancelled") badgeClass = "badge-danger";
+  
+  return `<span class="badge ${badgeClass}">${status}</span>`;
 }
 
 
-document.addEventListener("DOMContentLoaded", () =>{
-    initMobileMenu(); 
-    initLiveClock(); // function call
-    initFAQAccordion();
-    renderLiveBusStatusTable(); //livebus ar table k call korache
-    renderBusScheduleTable();
-    startLiveStatusSimulation(); // simulation mane bus kothai ache 
-
+document.addEventListener("DOMContentLoaded", () => {
+  
+  initMobileMenu();
+  
+  initLiveClock();
+  
+  initFAQAccordion();
+  
+  renderLiveBusStatusTable();
+  
+  renderBusScheduleTable();
+  
+  startLiveStatusSimulation();
 });
 
 
-function initMobileMenu(){ // function create
-    const menuBtn = document.getElementById("mobileMenuBtn"); 
-    const navLinks = document.getElementById("navLinks");
-    if (menuBtn && navLinks){
-        menuBtn.addEventListener("click",() =>{
-            navLinks.classList.toggle("show");
-        });
-    }
-}
-
-navLinks.querySelectorAll(".navlink").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("show");
+function initMobileMenu() {
+  
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  
+  const navLinks = document.getElementById("navLinks");
+  
+  if (menuBtn && navLinks) {
+    
+    menuBtn.addEventListener("click", () => {
+      
+      navLinks.classList.toggle("show");
     });
-});
 
-
-function initLiveClock(){
-    const clockElement = document.getElementById("liveClock");
-    if(!clockElement) return;
-    function updateClock() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString([], { hour: '2-digit' , minute:'2-digit' , second:'2-digit'}); // HH:MM:SS format
-        clockElement.textContent = timeString;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
+    
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        
+        navLinks.classList.remove("show");
+      });
+    });
+  }
 }
+
+
+function initLiveClock() {
+  
+  const clockElement = document.getElementById("liveClock");
+  
+  if (!clockElement) return;
+
+  
+  function updateClock() {
+    
+    const now = new Date();
+    
+    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    
+    clockElement.textContent = timeString;
+  }
+
+  
+  updateClock();
+  
+  setInterval(updateClock, 1000);
+}
+
 
 function initFAQAccordion() {
-    const faqItems = document.querySelectorAll(".faq-item");
-    faqItems.forEach(item =>{
-        const questionBtn = item.querySelector(".faq-question");
-        if(questionBtn) {
-            questionBtn.addEventListener("click",() =>{
-                const isActive = item.classList.contains("active");
-                faqItems.forEach(other => other.classList.remove("Active"));
-                if (!isActive){
-                    item.classList.add("active");
-                }
-            });
+  
+  const faqItems = document.querySelectorAll(".faq-item");
+  
+  faqItems.forEach(item => {
+    
+    const questionBtn = item.querySelector(".faq-question");
+    
+    if (questionBtn) {
+      
+      questionBtn.addEventListener("click", () => {
+        
+        const isActive = item.classList.contains("active");
+        
+        
+        faqItems.forEach(other => other.classList.remove("active"));
+        
+        
+        if (!isActive) {
+          item.classList.add("active");
         }
-    });
+      });
+    }
+  });
 }
 
 
 function renderLiveBusStatusTable() {
-    const tableBody = document.getElementById("liveBusStatustableBody");
-    if (!tableBody) return;
-    tableBody.innerHTML = busData.map(bus => `
-        <tr>
-            <td class="bus-num-cell">${bus.busNumber}</td>
-            <td>${bus.routeName}</td>
-            <td>${bus.currentStop}</td>
-            <td>${bus.status === 'cancelled' ? '--' : bus.etaMunites + 'min'}</td>
-            <td>${getStatusBadge(bus.status)}</td>
-            <td>
-                <button class="btn btn-secondary btn-sm" onclick="showBusModel('${bus.id}')">View Details</button>
-            </td>
-        </tr>
-    `).join("");
-}
+  
+  const tableBody = document.getElementById("liveBusStatusBody");
+  
+  if (!tableBody) return;
 
-function renderBusScheduleTable(){
-    const tableBody = document.getElementById("busScheduleTableBody");
-    if(!tableBody) return;
-    scheduleBody.innerHTML = busData.map(bus => `
-        <tr>
-            <td class = "bus-num-cell">${bus.busNumber}</td>
-            <td><${bus.departureTime}/td>
-            <td>${bus.arrival}</td>
-            <td>${bus.platform}</td>
-            <td>${getStatusBadge(bus.status)}</td>
-        </tr>
-    `).join("");
+  
+  tableBody.innerHTML = busData.map(bus => `
+    <tr>
+      <td class="bus-num-cell">Bus #${bus.busNumber}</td>
+      <td>${bus.routeName}</td>
+      <td>${bus.currentStop}</td>
+      <td>${bus.status === 'Cancelled' ? '--' : bus.etaMinutes + ' min'}</td>
+      <td>${getStatusBadge(bus.status)}</td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="openBusModal('${bus.id}')">View Details</button>
+      </td>
+    </tr>
+  `).join('');
 }
 
 
+function renderBusScheduleTable() {
+  
+  const scheduleBody = document.getElementById("busScheduleBody");
+  
+  if (!scheduleBody) return;
 
-function startLiveStatusSimulation(){
-    setInterval(() => {
-        const randomBusIndex = Math.floor(Math.random() * busData.length);
-        const bus = busData[randomBusIndex];
-        if (bus.status !== "cancelled"){
-            if(bus.etaMinutes > 1){
-                bus.etaMinutes = Math.max(1, bus.etaMinutes + (Math.random() > 0.6 ? 1 : -1));
-            } else {
-                bus.etaMunites = Math.floor(Math.random() *12) +2;
-            }
-
-            if(Math.random() < 0.15){
-                const statuses = ["On Time","Delayed",];
-                bus.status = statuses [Math.floor(Math.random() * statuses.length)];
-
-            }
-        }
-
-        renderLiveBusStatusTable();
-        renderBusScheduleTable();
-        if (typeof filterBuses == 'function'){
-            filterBuses();
-        }
-
-    }, 10000);
+  
+  scheduleBody.innerHTML = busData.map(bus => `
+    <tr>
+      <td class="bus-num-cell">Bus #${bus.busNumber}</td>
+      <td>${bus.departure}</td>
+      <td>${bus.arrival}</td>
+      <td>${bus.platform}</td>
+      <td>${getStatusBadge(bus.status)}</td>
+    </tr>
+  `).join('');
 }
 
+
+function startLiveStatusSimulation() {
+  
+  setInterval(() => {
+    
+    const randomIndex = Math.floor(Math.random() * busData.length);
+    
+    const bus = busData[randomIndex];
+
+    
+    if (bus.status !== "Cancelled") {
+      
+      if (bus.etaMinutes > 1) {
+        
+        bus.etaMinutes = Math.max(1, bus.etaMinutes + (Math.random() > 0.6 ? 1 : -1));
+      } else {
+        
+        bus.etaMinutes = Math.floor(Math.random() * 12) + 2;
+      }
+
+      
+      if (Math.random() < 0.15) {
+        const statuses = ["On Time", "Delayed"];
+        bus.status = statuses[Math.floor(Math.random() * statuses.length)];
+      }
+    }
+
+    
+    renderLiveBusStatusTable();
+    renderBusScheduleTable();
+
+    
+    if (typeof filterBuses === 'function') {
+      filterBuses();
+    }
+  }, 10000);
+}
